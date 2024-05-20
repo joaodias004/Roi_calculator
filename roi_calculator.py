@@ -29,7 +29,7 @@ if st.button("Calcular"):
         st.write(f"O lucro total foi de: R${lucro}")
         st.write(f"O ROI de seu empreendimento foi: {roi}%")
 
-        # Create a chart to display the profit
+        # Criando uma dashboard
         fig = go.Figure(go.Waterfall(
             name = "20", orientation = "v",
             measure = ["relative","relative", "total"],
@@ -52,10 +52,5 @@ if st.button("Calcular"):
 
         st.plotly_chart(fig)
 
-        # Display the URL in the app
-        st.write(f"Para acessar o app em um navegador, use a URL: http://localhost:8501")
-    else:
-        st.write("Por favor, preencha todos os campos.")
-
-# Add a spacer to separate the input boxes from the output
+# Adicionando um divisor 
 st.markdown("---")
