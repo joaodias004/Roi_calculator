@@ -1,8 +1,7 @@
 import plotly.express as px
 import plotly.graph_objects as go
-#Calculando retorno no investimento!
 import streamlit as st
-
+#Calculando retorno no investimento!
 def calculando_lucro():
     lucro = total_lucro - total_custos
     return lucro
