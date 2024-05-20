@@ -16,7 +16,7 @@ try:
     total_lucro = st.number_input("Qual foi o lucro total?", format="%.2f")
 except:
     st.write(f"Por favor, insira um número")
-    
+
 if st.button("Calcular"):
     if total_custos and total_lucro:
         total_custos = float(total_custos)
@@ -30,14 +30,18 @@ if st.button("Calcular"):
 
         # Criando uma dashboard
         fig = go.Figure(go.Waterfall(
-            name = "20", orientation = "v",
-            measure = ["relative","relative", "total"],
-            x = ["Vendas", "Gastos", "Lucro"],
-            textposition = "outside",
-            text = [f"+{total_lucro:.2f}", f"-{total_custos:.2f}", f"{lucro:.2f}"],
-            y = [total_lucro, -total_custos, lucro],
-            connector = {"line":{"color":"rgb(63, 63, 63)"}}
-        ))
+        name = "20", orientation = "v",
+        measure = ["relative","relative", "total"],
+        x = ["Vendas", "Gastos", "Lucro"],
+        textposition = "outside",
+        text = [f"+{total_lucro:.2f}", f"-{total_custos:.2f}", f"{lucro:.2f}"],
+        y = [total_lucro, -total_custos, lucro],
+        connector = {"line":{"color":"rgb(63, 63, 63)"}},
+        hovertext = [f"Vendas: R${total_lucro:.2f}",
+                    f"Gastos: R${total_custos:.2f}",
+                    f"Lucro: R${lucro:.2f}"],
+        hoverinfo = "text"
+    ))
 
         fig.update_layout(
             title = f"Profit and Loss Statement (ROI: {roi:.2f}%)",
@@ -45,7 +49,7 @@ if st.button("Calcular"):
         )
 
         fig.update_layout(
-                    title = "Profit and loss",
+                    title = "Lucro:",
                     showlegend = True
                 )
 
